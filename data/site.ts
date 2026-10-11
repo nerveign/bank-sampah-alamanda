@@ -35,7 +35,7 @@ export const navItems: NavItem[] = [
   { label: 'Pengurus', id: 'pengurus' },
   { label: 'Regulasi', id: 'regulasi' },
   { label: 'Lokasi', id: 'lokasi' },
-  { label: 'Gallery', id: 'gallery' },
+  { label: 'Aktivitas', id: 'aktivitas' },
   { label: 'Kontak', id: 'kontak' },
 ];
 
