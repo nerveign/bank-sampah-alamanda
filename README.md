@@ -37,14 +37,16 @@ Gambar dioptimasi otomatis oleh `next/image` saat di-deploy ke Vercel.
 
 Di Google Maps, cari lokasi bank sampah, pilih **Bagikan → Sematkan peta**, lalu salin nilai `src` dari kode iframe ke `mapsEmbedUrl` di `data/site.ts`. Link biasa (**Bagikan → Salin link**) masuk ke `mapsUrl`.
 
+### Logo
+
+File asli ada di `public/images/bank-sampah-logo.jpeg` (1024×1024). Yang dipakai situs adalah versi kecil hasil resize: `public/images/logo.webp` (navbar, 256×256), `app/icon.png` (favicon, 192×192), dan `app/apple-icon.png` (ikon iOS, 180×180). Jika logo berganti, buat ulang ketiga file itu dari file asli.
+
 ## Konten yang masih placeholder
 
-- Teks hero dan foto Tentang
+- Teks hero
 - Teks regulasi (**verifikasi nomor dan tahun peraturan sebelum dipublikasikan**)
 - Titik peta yang tepat (sekarang masih pencarian area)
-- Akun Instagram
 - Foto aktivitas
-- Logo (sementara teks "Alamanda"; ikon situs di `app/icon.svg`)
 
 ## Struktur
 
