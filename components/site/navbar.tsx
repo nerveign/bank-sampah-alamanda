@@ -44,7 +44,8 @@ export function Navbar() {
         <a href="#beranda" className="flex items-center gap-3">
           {/* Nama situs ada di sebelahnya, jadi logo cukup dekoratif (alt kosong). */}
           <Image src={logo} alt="" priority sizes="48px" className="size-12 shrink-0" />
-          <span className="leading-tight">
+          {/* Di mobile hanya logo yang tampil; teks tetap ada untuk pembaca layar. */}
+          <span className="sr-only leading-tight lg:not-sr-only">
             <span className="block text-base font-semibold tracking-tight text-foreground sm:text-lg">{site.name}</span>
           </span>
         </a>
