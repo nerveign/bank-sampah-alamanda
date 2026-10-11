@@ -17,7 +17,7 @@ export function Contact() {
               title="Ikuti kabar dan kegiatan kami di Instagram"
               inverse
             />
-            <p className="mt-6 max-w-md leading-relaxed text-primary-foreground/80 sm:text-lg">
+            <p className="mt-6 max-w-md leading-relaxed text-primary-foreground/90 sm:text-lg">
               Jadwal penimbangan, informasi kegiatan, dan dokumentasi terbaru
               kami bagikan lewat Instagram.
             </p>
@@ -38,7 +38,7 @@ export function Contact() {
                 <span className="block font-semibold">{handle}</span>
               </span>
             </span>
-            <span className="flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform group-hover:rotate-45">
+            <span className="flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform motion-safe:group-hover:rotate-45">
               <ArrowUpRightIcon className="size-5" />
             </span>
           </a>

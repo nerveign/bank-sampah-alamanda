@@ -37,13 +37,13 @@ export function SectionHeading({
       <p
         className={cn(
           "flex items-center gap-3 text-xs font-medium tracking-[0.18em] uppercase sm:text-sm",
-          inverse ? "text-white/70" : "text-muted-foreground",
+          inverse ? "text-primary-foreground/90" : "text-muted-foreground",
         )}
       >
         <span
           className={cn(
             "font-semibold tracking-normal",
-            inverse ? "text-white" : "text-primary",
+            inverse ? "text-primary-foreground" : "text-primary",
           )}
         >
           ({String(number).padStart(2, "0")})

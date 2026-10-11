@@ -12,7 +12,7 @@ export function VisionMission() {
 
       <div className="mt-12 grid gap-4 lg:grid-cols-5">
         <div className="flex flex-col justify-between gap-10 rounded-3xl bg-primary p-8 text-primary-foreground sm:p-10 lg:col-span-2">
-          <p className="text-xs font-medium tracking-[0.18em] text-primary-foreground/70 uppercase sm:text-sm">
+          <p className="text-xs font-medium tracking-[0.18em] text-primary-foreground/90 uppercase sm:text-sm">
             Visi
           </p>
           <p className="text-2xl leading-snug font-semibold tracking-tight sm:text-3xl">

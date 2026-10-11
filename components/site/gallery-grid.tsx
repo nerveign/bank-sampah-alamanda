@@ -42,7 +42,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
                     ? "(min-width: 768px) 50vw, 100vw"
                     : "(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                 }
-                className="size-full transition-transform duration-500 group-hover:scale-105"
+                className="size-full transition-transform duration-500 motion-safe:group-hover:scale-105"
               />
             </button>
           </li>

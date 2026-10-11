@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bank Sampah Alamanda
 
-## Getting Started
+Landing page Bank Sampah Alamanda, wadah memilah sampah untuk warga RW 01 Kelurahan Mangunsari, Kota Semarang.
 
-First, run the development server:
+Satu halaman statis, dibangun dengan Next.js 16, React 19, Tailwind CSS v4, dan shadcn/ui. Spesifikasi lengkap ada di [docs/SPEC.md](docs/SPEC.md).
+
+## Menjalankan
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka http://localhost:3000. Untuk mengecek build produksi: `pnpm lint` lalu `pnpm build`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Mengganti konten
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Semua teks, nama, dan tautan ada di folder `data/`, terpisah dari komponen. Cukup ubah file berikut:
 
-## Learn More
+| File | Isi |
+|---|---|
+| `data/site.ts` | Nama, tagline hero, foto hero, alamat, link Google Maps, akun Instagram, menu navbar |
+| `data/profil.ts` | Teks Tentang, foto Tentang, Visi & Misi |
+| `data/pengurus.ts` | Susunan dan nama pengurus (satu baris array = satu tingkat bagan) |
+| `data/regulasi.ts` | Penjelasan dan poin-poin regulasi |
+| `data/gallery.ts` | Foto kegiatan untuk gallery |
 
-To learn more about Next.js, take a look at the following resources:
+### Foto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Simpan foto di `public/images/`, misalnya `public/images/gallery/kerja-bakti.jpg`.
+2. Isi `src` atau `image` dengan path-nya tanpa `public`, misalnya `"/images/gallery/kerja-bakti.jpg"`.
+3. Selama nilainya `null`, yang tampil adalah kotak placeholder.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Gambar dioptimasi otomatis oleh `next/image` saat di-deploy ke Vercel.
 
-## Deploy on Vercel
+### Peta lokasi
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Di Google Maps, cari lokasi bank sampah, pilih **Bagikan → Sematkan peta**, lalu salin nilai `src` dari kode iframe ke `mapsEmbedUrl` di `data/site.ts`. Link biasa (**Bagikan → Salin link**) masuk ke `mapsUrl`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Konten yang masih placeholder
+
+- Tagline hero, foto hero, dan foto Tentang
+- Visi & Misi
+- Nama dan susunan pengurus
+- Teks regulasi (**verifikasi nomor dan tahun peraturan sebelum dipublikasikan**)
+- Titik peta yang tepat (sekarang masih pencarian area)
+- Akun Instagram
+- Foto gallery
+- Logo (sementara teks "Alamanda"; ikon situs di `app/icon.svg`)
+
+## Struktur
+
+```
+app/            layout, halaman, gaya global, ikon, gambar Open Graph
+components/site komponen tiap section (navbar, hero, about, dst.)
+components/ui   komponen shadcn/ui
+data/           konten situs
+docs/SPEC.md    spesifikasi dan rencana
+```
+
+## Deploy
+
+Hubungkan repo ini ke Vercel. Tidak perlu konfigurasi atau environment variable tambahan.

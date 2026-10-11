@@ -1,6 +1,15 @@
 # Spesifikasi & Rencana — Landing Page Bank Sampah Alamanda
 
-Status: **draft untuk direview** · Dibuat 2026-10-11
+Status: **Fase 0–4 selesai diimplementasikan**, menunggu konten asli · Dibuat 2026-10-11
+
+### Catatan implementasi (perbedaan dari rencana awal)
+- **Warna tombol** memakai `#1F7A41`, bukan `#2E9E57`, agar kontras teks putih memenuhi standar (lihat tabel token).
+- **shadcn/ui v4** dengan preset `base-nova` (berbasis Base UI, bukan Radix): pola `asChild` diganti `render`, dan `cn` diimpor dari paket `cn`.
+- **Menu mobile** memakai Sheet dengan `modal="trap-focus"` (fokus terkunci, scroll halaman tidak), agar link anchor langsung scroll sambil sheet menutup.
+- **Gallery**: foto pertama tampil 2×2. Jumlah 9, 21, 33, dst. mengisi grid tanpa sel kosong. Klik foto membuka lightbox (panah kiri/kanan, Escape).
+- **Kontak** menjadi section tersendiri sebelum footer.
+- **SEO**: metadata dan Open Graph di `app/layout.tsx`, gambar OG di `app/opengraph-image.tsx`, ikon sementara di `app/icon.svg`. `metadataBase` tidak diset karena Vercel mengisinya otomatis dari domain produksi.
+- Cara mengganti konten dijelaskan di `README.md`.
 
 ## 1. Ringkasan
 

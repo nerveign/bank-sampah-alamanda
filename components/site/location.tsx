@@ -34,7 +34,7 @@ export function Location() {
             className="group mt-6 inline-flex items-center gap-3 self-start rounded-full bg-primary py-2 pr-2 pl-6 font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Buka di Google Maps
-            <span className="flex size-9 items-center justify-center rounded-full bg-white text-primary transition-transform group-hover:rotate-45">
+            <span className="flex size-9 items-center justify-center rounded-full bg-white text-primary transition-transform motion-safe:group-hover:rotate-45">
               <ArrowUpRightIcon className="size-4" />
             </span>
           </a>

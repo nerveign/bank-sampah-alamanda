@@ -14,7 +14,7 @@ function Node({ person, level }: { person: Pengurus; level: number }) {
       <p
         className={cn(
           "text-xs font-medium tracking-[0.12em] uppercase",
-          level === 1 ? "text-primary-foreground/75" : "text-primary",
+          level === 1 ? "text-primary-foreground/90" : "text-primary",
         )}
       >
         {person.jabatan}

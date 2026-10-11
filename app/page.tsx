@@ -12,6 +12,12 @@ import { Footer } from "@/components/site/footer";
 export default function Home() {
   return (
     <>
+      <a
+        href="#tentang"
+        className="sr-only z-50 rounded-full bg-white px-4 py-2 font-medium text-primary shadow focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
+      >
+        Lewati ke konten
+      </a>
       <Navbar />
       <main className="flex-1">
         <Hero />
