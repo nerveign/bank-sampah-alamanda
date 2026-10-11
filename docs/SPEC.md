@@ -6,7 +6,7 @@ Status: **Fase 0–4 selesai diimplementasikan**, menunggu konten asli · Dibuat
 - **Warna tombol** memakai `#1F7A41`, bukan `#2E9E57`, agar kontras teks putih memenuhi standar (lihat tabel token).
 - **shadcn/ui v4** dengan preset `base-nova` (berbasis Base UI, bukan Radix): pola `asChild` diganti `render`, dan `cn` diimpor dari paket `cn`.
 - **Menu mobile** memakai Sheet dengan `modal="trap-focus"` (fokus terkunci, scroll halaman tidak), agar link anchor langsung scroll sambil sheet menutup.
-- **Gallery**: foto pertama tampil 2×2. Jumlah 9, 21, 33, dst. mengisi grid tanpa sel kosong. Klik foto membuka lightbox (panah kiri/kanan, Escape).
+- **Aktivitas**: foto pertama tampil 2×2. Jumlah 9, 21, 33, dst. mengisi grid tanpa sel kosong. Klik foto membuka lightbox (panah kiri/kanan, Escape).
 - **Kontak** menjadi section tersendiri sebelum footer.
 - **SEO**: metadata dan Open Graph di `app/layout.tsx`, gambar OG di `app/opengraph-image.tsx`, ikon sementara di `app/icon.svg`. `metadataBase` tidak diset karena Vercel mengisinya otomatis dari domain produksi.
 - Cara mengganti konten dijelaskan di `README.md`.
@@ -32,7 +32,7 @@ Tujuan halaman:
 | Bahasa | Indonesia saja (`<html lang="id">`) |
 | Font | **Inter** sebagai base font, lewat `next/font/google` |
 | Logo | Sementara teks **"Alamanda"** (logo asli menyusul) |
-| Foto | Placeholder dulu untuk hero, tentang, dan gallery |
+| Foto | Placeholder dulu untuk hero, tentang, dan aktivitas |
 | Elemen referensi yang dibuang | Tombol search di navbar, kartu "Join The Movement", tombol "Login" |
 | `output: 'export'` | **Ditunda**, diputuskan nanti (lihat bagian 9) |
 
@@ -81,11 +81,11 @@ Satu halaman, urutan dari atas. Setiap section punya `id` untuk anchor dan `scro
 | 5 | Struktur Pengurus | `#pengurus` | Pengurus |
 | 6 | Regulasi | `#regulasi` | Regulasi |
 | 7 | Lokasi | `#lokasi` | Lokasi |
-| 8 | Gallery | `#gallery` | Gallery |
+| 8 | Aktivitas | `#aktivitas` | Aktivitas |
 | 9 | Kontak | `#kontak` | Kontak |
 | 10 | Footer | n/a | n/a |
 
-Menu navbar (7 item): **Beranda, Tentang, Pengurus, Regulasi, Lokasi, Gallery, Kontak**.
+Menu navbar (7 item): **Beranda, Tentang, Pengurus, Regulasi, Lokasi, Aktivitas, Kontak**.
 
 ### 4.1 Navbar
 - Bar putih solid selebar layar, `sticky` di atas (tinggi 80px), dengan garis bawah tipis. Hero berada di bawahnya, bukan di belakangnya.
@@ -136,9 +136,9 @@ Menu navbar (7 item): **Beranda, Tentang, Pengurus, Regulasi, Lokasi, Gallery, K
 - Di samping peta: alamat tertulis dan tombol "Buka di Google Maps".
 - Butuh dari pemilik proyek: link embed Google Maps dan alamat lengkap.
 
-### 4.8 Gallery
+### 4.8 Aktivitas
 - Foto kegiatan dalam **grid** responsif (2 kolom di mobile, 3–4 di desktop).
-- Placeholder dulu; jumlahnya mudah diubah lewat satu array data (`data/gallery.ts`).
+- Placeholder dulu; jumlahnya mudah diubah lewat satu array data (`data/activities.ts`).
 - Klik foto membuka tampilan besar (lightbox sederhana memakai **Dialog** shadcn).
 
 ### 4.9 Kontak
@@ -166,19 +166,19 @@ components/
     org-chart.tsx
     regulations.tsx
     location.tsx
-    gallery.tsx
+    activities.tsx
     contact.tsx
     footer.tsx
 data/
   site.ts               # nama, alamat, link Instagram, link Maps
   pengurus.ts
   regulasi.ts
-  gallery.ts
+  activities.ts
 public/
   images/               # foto placeholder, lalu foto asli
 ```
 
-Semua section adalah Server Component, kecuali yang butuh interaksi (menu mobile di navbar, penanda menu aktif, lightbox gallery) yang dipisah sebagai Client Component kecil.
+Semua section adalah Server Component, kecuali yang butuh interaksi (menu mobile di navbar, penanda menu aktif, lightbox aktivitas) yang dipisah sebagai Client Component kecil.
 
 ## 6. Rencana implementasi
 
@@ -199,8 +199,8 @@ Setiap fase bisa direview sebelum lanjut.
 8. Struktur Pengurus (bagan hierarki).
 9. Regulasi.
 
-**Fase 3 — Lokasi, gallery, penutup**
-10. Lokasi (embed Maps), Gallery (grid + lightbox), Kontak, Footer.
+**Fase 3 — Lokasi, aktivitas, penutup**
+10. Lokasi (embed Maps), Aktivitas (grid + lightbox), Kontak, Footer.
 
 **Fase 4 — Finishing**
 11. Responsif (mobile, tablet, desktop), aksesibilitas (kontras, fokus keyboard, alt text, label).
@@ -228,13 +228,13 @@ Setiap fase bisa direview sebelum lanjut.
 | Teks regulasi (penjelasan dan poin-poin) | Regulasi | Placeholder bertanda |
 | Link embed Google Maps dan alamat lengkap | Lokasi | Belum ada peta |
 | Handle/URL Instagram | Kontak, footer | Tautan kosong |
-| Foto: hero, tentang, gallery | Hero, Tentang, Gallery | Placeholder |
+| Foto: hero, tentang, aktivitas | Hero, Tentang, Aktivitas | Placeholder |
 | Referensi desain tambahan | Seluruh tampilan | Menunggu |
 
 ## 9. Keputusan yang ditunda
 
 **`output: 'export'` di `next.config.ts`.** Belum diputuskan. Catatan untuk keputusan nanti:
 - Di Vercel, halaman tanpa fitur server tetap di-prerender statis meskipun tanpa opsi ini.
-- Tanpa `export`, optimasi gambar `next/image` aktif otomatis di Vercel (berguna untuk gallery).
+- Tanpa `export`, optimasi gambar `next/image` aktif otomatis di Vercel (berguna untuk aktivitas).
 - Dengan `export`, `next/image` memerlukan `unoptimized` atau loader kustom; manfaatnya hanya bila ada kemungkinan pindah ke hosting statis biasa.
 - Rekomendasi: tanpa `export`. Tidak ada pekerjaan di rencana ini yang bergantung pada keputusan tersebut.

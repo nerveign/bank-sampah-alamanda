@@ -23,12 +23,12 @@ Semua teks, nama, dan tautan ada di folder `data/`, terpisah dari komponen. Cuku
 | `data/profil.ts` | Teks Tentang, foto Tentang, Visi & Misi |
 | `data/pengurus.ts` | Susunan dan nama pengurus (satu baris array = satu tingkat bagan) |
 | `data/regulasi.ts` | Penjelasan dan poin-poin regulasi |
-| `data/gallery.ts` | Foto kegiatan untuk gallery |
+| `data/activities.ts` | Foto kegiatan untuk section Aktivitas |
 
 ### Foto
 
-1. Simpan foto di `public/images/`, misalnya `public/images/gallery/kerja-bakti.jpg`.
-2. Isi `src` atau `image` dengan path-nya tanpa `public`, misalnya `"/images/gallery/kerja-bakti.jpg"`.
+1. Simpan foto di `public/images/`, misalnya `public/images/aktivitas/kerja-bakti.jpg`.
+2. Isi `src` atau `image` dengan path-nya tanpa `public`, misalnya `"/images/aktivitas/kerja-bakti.jpg"`.
 3. Selama nilainya `null`, yang tampil adalah kotak placeholder.
 
 Gambar dioptimasi otomatis oleh `next/image` saat di-deploy ke Vercel.
@@ -43,7 +43,7 @@ Di Google Maps, cari lokasi bank sampah, pilih **Bagikan → Sematkan peta**, la
 - Teks regulasi (**verifikasi nomor dan tahun peraturan sebelum dipublikasikan**)
 - Titik peta yang tepat (sekarang masih pencarian area)
 - Akun Instagram
-- Foto gallery
+- Foto aktivitas
 - Logo (sementara teks "Alamanda"; ikon situs di `app/icon.svg`)
 
 ## Struktur

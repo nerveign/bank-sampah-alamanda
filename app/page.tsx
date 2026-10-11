@@ -5,7 +5,7 @@ import { VisionMission } from "@/components/site/vision-mission";
 import { OrgChart } from "@/components/site/org-chart";
 import { Regulations } from "@/components/site/regulations";
 import { Location } from "@/components/site/location";
-import { Gallery } from "@/components/site/gallery";
+import { Activities } from "@/components/site/activities";
 import { Contact } from "@/components/site/contact";
 import { Footer } from "@/components/site/footer";
 
@@ -26,7 +26,7 @@ export default function Home() {
         <OrgChart />
         <Regulations />
         <Location />
-        <Gallery />
+        <Activities />
         <Contact />
       </main>
       <Footer />

@@ -3,14 +3,14 @@
 import { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { GalleryItem } from "@/data/gallery";
+import type { ActivityItem } from "@/data/activities";
 import { Photo } from "@/components/site/photo";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const navButton =
   "flex size-10 items-center justify-center rounded-full bg-white/90 text-foreground shadow-sm transition-colors hover:bg-white";
 
-export function GalleryGrid({ items }: { items: GalleryItem[] }) {
+export function ActivityGrid({ items }: { items: ActivityItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const current = openIndex === null ? null : items[openIndex];
 

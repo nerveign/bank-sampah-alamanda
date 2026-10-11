@@ -1,5 +1,5 @@
-export type GalleryItem = {
-  // Path di /public (mis. "/images/gallery/kerja-bakti.jpg"); null = placeholder.
+export type ActivityItem = {
+  // Path di /public (mis. "/images/aktivitas/kerja-bakti.jpg"); null = placeholder.
   src: string | null;
   alt: string;
 };
@@ -7,7 +7,7 @@ export type GalleryItem = {
 // Placeholder: ganti dengan foto kegiatan asli. Urutan di sini = urutan di grid;
 // foto pertama tampil lebih besar. Jumlah 9, 21, 33, dst. mengisi grid tanpa
 // sel kosong di tablet (3 kolom) dan desktop (4 kolom).
-export const galleryItems: GalleryItem[] = [
+export const activityItems: ActivityItem[] = [
   { src: null, alt: "Penimbangan sampah warga" },
   { src: null, alt: "Pemilahan sampah plastik" },
   { src: null, alt: "Pencatatan setoran nasabah" },
