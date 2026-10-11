@@ -45,7 +45,7 @@ export function Navbar() {
           {/* Nama situs ada di sebelahnya, jadi logo cukup dekoratif (alt kosong). */}
           <Image src={logo} alt="" priority sizes="48px" className="size-12 shrink-0" />
           <span className="leading-tight">
-            <span className="block text-base font-semibold tracking-tight text-primary sm:text-lg">{site.name}</span>
+            <span className="block text-base font-semibold tracking-tight text-foreground sm:text-lg">{site.name}</span>
           </span>
         </a>
 
@@ -69,7 +69,7 @@ export function Navbar() {
           </SheetTrigger>
           <SheetContent side="right" className="w-4/5 max-w-xs">
             <SheetHeader className="px-6 pt-6">
-              <SheetTitle className="text-lg font-bold tracking-tight text-primary">{site.name}</SheetTitle>
+              <SheetTitle className="text-lg font-bold tracking-tight text-foreground">{site.name}</SheetTitle>
             </SheetHeader>
             <nav aria-label="Navigasi utama">
               <ul className="flex flex-col gap-1 px-3">
