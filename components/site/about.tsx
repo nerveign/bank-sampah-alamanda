@@ -30,7 +30,7 @@ export function About() {
         </div>
 
         <div className="relative">
-          <Photo src={about.image} alt="Kegiatan memilah sampah di Bank Sampah Alamanda" sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[4/5] rounded-3xl sm:aspect-[4/3] lg:aspect-[4/5]" />
+          <Photo src={about.image} alt="Kegiatan memilah sampah di Bank Sampah Alamanda" sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[4/5] rounded-lg sm:aspect-[4/3] lg:aspect-[4/5]" />
         </div>
       </div>
     </Section>

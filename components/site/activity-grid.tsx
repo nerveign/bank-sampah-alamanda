@@ -32,7 +32,7 @@ export function ActivityGrid({ items }: { items: ActivityItem[] }) {
               type="button"
               onClick={() => setOpenIndex(index)}
               aria-label={`Lihat foto: ${item.alt}`}
-              className="group block aspect-square w-full overflow-hidden rounded-2xl outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:rounded-3xl"
+              className="group block aspect-square w-full overflow-hidden rounded-md outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:rounded-lg"
             >
               <Photo
                 src={item.src}
@@ -68,7 +68,7 @@ export function ActivityGrid({ items }: { items: ActivityItem[] }) {
                   alt={current.alt}
                   sizes="(min-width: 896px) 896px, 100vw"
                   fit="contain"
-                  className="aspect-[4/3] w-full rounded-3xl bg-black/80"
+                  className="aspect-[4/3] w-full rounded-lg bg-black/80"
                 />
                 <div className="absolute inset-x-3 top-1/2 flex -translate-y-1/2 justify-between">
                   <button
@@ -89,7 +89,7 @@ export function ActivityGrid({ items }: { items: ActivityItem[] }) {
                   </button>
                 </div>
               </div>
-              <div className="flex items-center justify-between gap-4 rounded-2xl bg-white px-5 py-3">
+              <div className="flex items-center justify-between gap-4 rounded-md bg-white px-5 py-3">
                 <DialogTitle className="text-sm font-medium">{current.alt}</DialogTitle>
                 <span className="shrink-0 text-sm text-muted-foreground">
                   {openIndex! + 1} / {items.length}

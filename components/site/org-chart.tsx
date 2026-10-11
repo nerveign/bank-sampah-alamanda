@@ -23,7 +23,7 @@ function Node({
   const single = person.nama.length === 1;
 
   return (
-    <div className={cn("rounded-2xl border px-4 py-4 text-center", nodeTone(level), className)}>
+    <div className={cn("rounded-md border px-4 py-4 text-center", nodeTone(level), className)}>
       <p
         className={cn(
           "text-xs font-semibold tracking-[0.1em] uppercase",

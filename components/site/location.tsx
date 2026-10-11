@@ -15,7 +15,7 @@ export function Location() {
             menyetorkan sampah yang sudah dipilah.
           </p>
 
-          <div className="mt-8 flex gap-4 rounded-3xl border bg-surface p-6">
+          <div className="mt-8 flex gap-4 rounded-lg border bg-surface p-6">
             <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
               <MapPinIcon className="size-5" />
             </span>
@@ -40,7 +40,7 @@ export function Location() {
           </a>
         </div>
 
-        <div className="overflow-hidden rounded-3xl border bg-muted lg:col-span-8">
+        <div className="overflow-hidden rounded-lg border bg-muted lg:col-span-8">
           <iframe
             src={mapsEmbedUrl}
             title={`Peta lokasi ${site.name}`}

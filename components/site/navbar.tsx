@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { MenuIcon } from 'lucide-react';
 import { navItems, sectionToNav, site } from '@/data/site';
 import Image from 'next/image';
-import logo from '@/public/images/logo.webp';
+import logo from '@/public/images/bank-sampah-logo.png';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 function useActiveSection() {
@@ -61,8 +61,6 @@ export function Navbar() {
           </ul>
         </nav>
 
-        {/* trap-focus: fokus terkunci di sheet tapi scroll halaman tidak,
-            jadi link anchor bisa langsung scroll sementara sheet menutup. */}
         <Sheet open={menuOpen} onOpenChange={setMenuOpen} modal="trap-focus">
           <SheetTrigger aria-label="Buka menu" className="flex size-11 items-center justify-center rounded-lg border text-foreground transition-colors hover:bg-muted lg:hidden">
             <MenuIcon className="size-5" />

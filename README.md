@@ -39,7 +39,7 @@ Di Google Maps, cari lokasi bank sampah, pilih **Bagikan → Sematkan peta**, la
 
 ### Logo
 
-File asli ada di `public/images/bank-sampah-logo.jpeg` (1024×1024). Yang dipakai situs adalah versi kecil hasil resize: `public/images/logo.webp` (navbar, 256×256), `app/icon.png` (favicon, 192×192), dan `app/apple-icon.png` (ikon iOS, 180×180). Jika logo berganti, buat ulang ketiga file itu dari file asli.
+File logo ada di `public/images/bank-sampah-logo.png` (PNG transparan, 512×512) dan dipakai langsung di navbar lewat `next/image`. Favicon `app/icon.png` (192×192) dan ikon iOS `app/apple-icon.png` (180×180) dibuat dari logo yang sama; buat ulang keduanya jika logo berganti.
 
 ## Konten yang masih placeholder
 

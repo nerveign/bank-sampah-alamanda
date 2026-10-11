@@ -32,8 +32,6 @@ export type NavItem = { label: string; id: string };
 export const navItems: NavItem[] = [
   { label: 'Beranda', id: 'beranda' },
   { label: 'Tentang', id: 'tentang' },
-  { label: 'Pengurus', id: 'pengurus' },
-  { label: 'Regulasi', id: 'regulasi' },
   { label: 'Lokasi', id: 'lokasi' },
   { label: 'Aktivitas', id: 'aktivitas' },
   { label: 'Kontak', id: 'kontak' },
@@ -42,4 +40,6 @@ export const navItems: NavItem[] = [
 // Section yang tidak punya menu sendiri, dipetakan ke menu induknya.
 export const sectionToNav: Record<string, string> = {
   'visi-misi': 'tentang',
+  pengurus: 'tentang',
+  regulasi: 'tentang',
 };

@@ -8,7 +8,7 @@ Status: **Fase 0–4 selesai diimplementasikan**, menunggu konten asli · Dibuat
 - **Menu mobile** memakai Sheet dengan `modal="trap-focus"` (fokus terkunci, scroll halaman tidak), agar link anchor langsung scroll sambil sheet menutup.
 - **Aktivitas**: foto pertama tampil 2×2. Jumlah 9, 21, 33, dst. mengisi grid tanpa sel kosong. Klik foto membuka lightbox (panah kiri/kanan, Escape).
 - **Kontak** menjadi section tersendiri sebelum footer.
-- **SEO**: metadata dan Open Graph di `app/layout.tsx`, gambar OG di `app/opengraph-image.tsx`, logo di `public/images/logo.webp` dengan favicon `app/icon.png` dan `app/apple-icon.png` (diresize dari `bank-sampah-logo.jpeg`). `metadataBase` tidak diset karena Vercel mengisinya otomatis dari domain produksi.
+- **SEO**: metadata dan Open Graph di `app/layout.tsx`, gambar OG di `app/opengraph-image.tsx`, logo di `public/images/bank-sampah-logo.png` dengan favicon `app/icon.png` dan `app/apple-icon.png`. `metadataBase` tidak diset karena Vercel mengisinya otomatis dari domain produksi.
 - Cara mengganti konten dijelaskan di `README.md`.
 
 ## 1. Ringkasan

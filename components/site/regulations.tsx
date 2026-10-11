@@ -1,5 +1,5 @@
-import { regulasi } from "@/data/regulasi";
-import { Section, SectionHeading } from "@/components/site/section";
+import { regulasi } from '@/data/regulasi';
+import { Section, SectionHeading } from '@/components/site/section';
 
 export function Regulations() {
   return (
@@ -16,13 +16,8 @@ export function Regulations() {
 
         <ol className="space-y-4 lg:col-span-7">
           {regulasi.points.map((point, index) => (
-            <li
-              key={point.title}
-              className="flex gap-5 rounded-3xl border bg-card p-6 sm:gap-6 sm:p-8"
-            >
-              <span className="text-sm font-semibold text-primary">
-                ({String(index + 1).padStart(2, "0")})
-              </span>
+            <li key={point.title} className="flex gap-5 rounded-lg border bg-card p-6 sm:gap-6 sm:p-8">
+              <span className="text-sm font-semibold text-primary">[{String(index + 1).padStart(2, '0')}]</span>
               <div>
                 <h3 className="text-lg leading-snug font-semibold">{point.title}</h3>
                 <p className="mt-2 text-muted-foreground">{point.text}</p>

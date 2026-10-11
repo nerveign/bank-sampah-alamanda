@@ -9,7 +9,7 @@ export function Contact() {
   return (
     <section id="kontak" className="scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
-        <div className="grid items-end gap-10 rounded-[2rem] bg-primary p-8 text-primary-foreground sm:p-12 lg:grid-cols-2 lg:p-16">
+        <div className="grid items-end gap-10 rounded-lg bg-primary p-8 text-primary-foreground sm:p-12 lg:grid-cols-2 lg:p-16">
           <div>
             <SectionHeading
               eyebrow="Kontak"
