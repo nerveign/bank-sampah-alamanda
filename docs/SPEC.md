@@ -41,11 +41,11 @@ Tujuan halaman:
 Dua referensi dari pemilik proyek:
 1. **"Clears"** (terang, editorial): navbar pill melayang, headline besar dengan tracking rapat, label kapital kecil, penomoran `(01)` berwarna hijau, card foto dengan radius besar, CTA pill hijau dengan ikon panah di lingkaran putih.
 2. **banksampah.jakarta.go.id** (gelap): hero foto full-bleed dengan overlay gelap, teks putih tebal, navbar pill translusen di tengah, logo di pill putih di kiri, CTA outline putih.
+3. **Situs Desa Cukil** (ditambahkan setelah implementasi, menggantikan referensi 2 untuk navbar dan hero): navbar putih solid dengan logo + nama + subjudul di kiri dan menu di kanan (menu aktif berlatar hijau muda); hero foto gelap dengan eyebrow wilayah, headline besar, paragraf, dua tombol (hijau solid + outline putih), dan titik slider di kanan bawah.
 
 **Perpaduan yang disepakati:**
-- **Hero** mengikuti referensi 2: foto gelap full-bleed, teks putih.
+- **Navbar dan hero** mengikuti referensi 3.
 - **Section di bawah hero** terang dengan aksen hijau, teks charcoal, dan gaya referensi 1 (penomoran `(01)`, card rounded, label kapital kecil, banyak whitespace).
-- **Navbar** mengikuti referensi 2 tanpa tombol di kanan: logo "Alamanda" di pill kiri, menu di pill translusen tengah.
 
 ### Token warna (usulan, bisa disetel saat implementasi)
 
@@ -88,17 +88,19 @@ Satu halaman, urutan dari atas. Setiap section punya `id` untuk anchor dan `scro
 Menu navbar (7 item): **Beranda, Tentang, Pengurus, Regulasi, Lokasi, Gallery, Kontak**.
 
 ### 4.1 Navbar
-- Desktop: pill translusen (blur) di tengah berisi 7 menu; logo teks "Alamanda" dalam pill putih di kiri. Tidak ada tombol di kanan.
-- Posisi melayang di atas hero (`fixed`/`sticky`), tetap terbaca saat di atas section terang (latar menjadi lebih solid setelah scroll).
-- Mobile: logo di kiri, tombol hamburger di kanan; menu terbuka lewat komponen **Sheet** shadcn.
+- Bar putih solid selebar layar, `sticky` di atas (tinggi 80px), dengan garis bawah tipis. Hero berada di bawahnya, bukan di belakangnya.
+- Kiri: logo (sementara ikon daun) + "Bank Sampah Alamanda" + subjudul "RW 01 Mangunsari, Semarang".
+- Desktop: 7 menu di kanan; menu aktif berlatar hijau muda dengan sudut membulat. Tidak ada tombol tambahan.
+- Mobile: tombol hamburger di kanan; menu terbuka lewat komponen **Sheet** shadcn.
 - Klik menu melakukan smooth scroll ke anchor; menu aktif ditandai sesuai section yang terlihat.
 
 ### 4.2 Hero
-- Foto full-bleed (placeholder), overlay gelap.
-- Headline besar putih. Usulan teks placeholder: **"Pilah Sampah, Jaga Lingkungan Kita"**.
-- Subjudul: "Bank Sampah Alamanda · RW 01 Kelurahan Mangunsari, Kota Semarang".
-- CTA tunggal: **Lihat Lokasi** (scroll ke `#lokasi`), tombol outline putih.
-- Tinggi minimal satu layar.
+- Slider foto full-bleed (placeholder, berganti otomatis tiap 6 detik, crossfade), overlay gelap, titik navigasi di kanan bawah. Satu foto = tanpa slider. Auto-play mati bila pengguna memilih *reduced motion*.
+- Eyebrow kapital: "RW 01 Kelurahan Mangunsari, Kota Semarang".
+- Headline besar putih. Placeholder: **"Pilah sampah, jaga lingkungan kita."**
+- Paragraf deskripsi singkat.
+- Dua tombol: **Lihat lokasi** (hijau solid, ke `#lokasi`) dan **Kenali kami** (outline putih, ke `#tentang`).
+- Tinggi: satu layar dikurangi tinggi navbar.
 
 ### 4.3 Tentang
 - Teks inti (dari pemilik proyek): bank sampah sebagai wadah untuk memilah sampah, khususnya untuk daerah RW 01 Kelurahan Mangunsari, Kota Semarang.

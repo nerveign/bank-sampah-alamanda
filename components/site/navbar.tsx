@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { MenuIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { navItems, sectionToNav, site } from "@/data/site";
+import { LogoMark } from "@/components/site/logo-mark";
 import {
   Sheet,
   SheetContent,
@@ -11,9 +11,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-
-// Navbar dianggap "di atas hero" sampai hero hampir tergulir habis.
-const HERO_EXIT_OFFSET = 96;
 
 function useActiveSection() {
   const [active, setActive] = useState(navItems[0].id);
@@ -42,62 +39,36 @@ function useActiveSection() {
   return active;
 }
 
-function useOnHero() {
-  const [onHero, setOnHero] = useState(true);
-
-  useEffect(() => {
-    const hero = document.getElementById("beranda");
-    if (!hero) return;
-    const update = () =>
-      setOnHero(window.scrollY < hero.offsetHeight - HERO_EXIT_OFFSET);
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
-  }, []);
-
-  return onHero;
-}
+const linkClass =
+  "rounded-lg font-medium text-foreground transition-colors hover:bg-muted aria-[current]:bg-accent aria-[current]:text-accent-foreground";
 
 export function Navbar() {
   const active = useActiveSection();
-  const onHero = useOnHero();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 px-4 pt-4 sm:px-6">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 lg:grid lg:grid-cols-[1fr_auto_1fr]">
-        <a
-          href="#beranda"
-          className="justify-self-start rounded-full bg-white px-5 py-2.5 text-lg font-bold tracking-tight text-primary shadow-sm"
-        >
-          {site.shortName}
+    <header className="sticky top-0 z-40 border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
+        <a href="#beranda" className="flex items-center gap-3">
+          <LogoMark className="size-10 shrink-0" />
+          <span className="leading-tight">
+            <span className="block text-base font-bold tracking-tight text-primary sm:text-lg">
+              {site.name}
+            </span>
+            <span className="block text-xs text-muted-foreground sm:text-sm">
+              {site.tagline}
+            </span>
+          </span>
         </a>
 
-        <nav
-          aria-label="Navigasi utama"
-          className={cn(
-            "hidden rounded-full border p-1.5 backdrop-blur-md transition-colors duration-300 lg:block",
-            onHero
-              ? "border-white/15 bg-white/10 text-white"
-              : "border-border bg-white/85 text-foreground shadow-sm",
-          )}
-        >
+        <nav aria-label="Navigasi utama" className="hidden lg:block">
           <ul className="flex items-center gap-1">
             {navItems.map((item) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
                   aria-current={active === item.id ? "true" : undefined}
-                  className={cn(
-                    "block rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    onHero
-                      ? "text-white/80 hover:text-white aria-[current]:bg-white/20 aria-[current]:text-white"
-                      : "text-muted-foreground hover:text-foreground aria-[current]:bg-accent aria-[current]:text-accent-foreground",
-                  )}
+                  className={`${linkClass} block px-3.5 py-2.5 text-[0.95rem]`}
                 >
                   {item.label}
                 </a>
@@ -111,19 +82,14 @@ export function Navbar() {
         <Sheet open={menuOpen} onOpenChange={setMenuOpen} modal="trap-focus">
           <SheetTrigger
             aria-label="Buka menu"
-            className={cn(
-              "flex size-11 items-center justify-center rounded-full border backdrop-blur-md transition-colors duration-300 lg:hidden",
-              onHero
-                ? "border-white/15 bg-white/10 text-white"
-                : "border-border bg-white/85 text-foreground shadow-sm",
-            )}
+            className="flex size-11 items-center justify-center rounded-lg border text-foreground transition-colors hover:bg-muted lg:hidden"
           >
             <MenuIcon className="size-5" />
           </SheetTrigger>
           <SheetContent side="right" className="w-4/5 max-w-xs">
             <SheetHeader className="px-6 pt-6">
               <SheetTitle className="text-lg font-bold tracking-tight text-primary">
-                {site.shortName}
+                {site.name}
               </SheetTitle>
             </SheetHeader>
             <nav aria-label="Navigasi utama">
@@ -134,7 +100,7 @@ export function Navbar() {
                       href={`#${item.id}`}
                       onClick={() => setMenuOpen(false)}
                       aria-current={active === item.id ? "true" : undefined}
-                      className="block rounded-xl px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted aria-[current]:bg-accent aria-[current]:text-accent-foreground"
+                      className={`${linkClass} block px-3 py-3 text-base`}
                     >
                       {item.label}
                     </a>

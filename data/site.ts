@@ -2,12 +2,17 @@ export const site = {
   name: "Bank Sampah Alamanda",
   shortName: "Alamanda",
   area: "RW 01 Kelurahan Mangunsari, Kota Semarang",
+  // Subjudul kecil di bawah nama pada navbar.
+  tagline: "RW 01 Mangunsari, Semarang",
   hero: {
-    eyebrow: "Bank Sampah · RW 01 Mangunsari",
+    eyebrow: "RW 01 Kelurahan Mangunsari, Kota Semarang",
     // Placeholder, menunggu tagline dari pengurus.
-    title: "Pilah Sampah, Jaga Lingkungan Kita",
-    // Isi dengan path di /public (mis. "/images/hero.jpg") saat foto asli tersedia.
-    image: null as string | null,
+    title: "Pilah sampah, jaga lingkungan kita.",
+    description:
+      "Wadah warga untuk memilah sampah dari rumah. Kenali profil, pengurus, regulasi, dan kegiatan Bank Sampah Alamanda.",
+    // Foto slider hero: path di /public (mis. "/images/hero-1.jpg"); null =
+    // placeholder. Satu foto = tanpa slider; dua atau lebih = berganti otomatis.
+    images: [null, null, null] as (string | null)[],
   },
   location: {
     address: "Pengkol, Kelurahan Mangunsari, Kota Semarang",

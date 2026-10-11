@@ -19,7 +19,7 @@ Semua teks, nama, dan tautan ada di folder `data/`, terpisah dari komponen. Cuku
 
 | File | Isi |
 |---|---|
-| `data/site.ts` | Nama, tagline hero, foto hero, alamat, link Google Maps, akun Instagram, menu navbar |
+| `data/site.ts` | Nama, subjudul navbar, teks hero, foto slider hero (`hero.images`), alamat, link Google Maps, akun Instagram, menu navbar |
 | `data/profil.ts` | Teks Tentang, foto Tentang, Visi & Misi |
 | `data/pengurus.ts` | Susunan dan nama pengurus (satu baris array = satu tingkat bagan) |
 | `data/regulasi.ts` | Penjelasan dan poin-poin regulasi |
