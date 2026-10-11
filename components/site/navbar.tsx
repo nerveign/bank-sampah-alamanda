@@ -44,8 +44,7 @@ export function Navbar() {
         <a href="#beranda" className="flex items-center gap-3">
           {/* Nama situs ada di sebelahnya, jadi logo cukup dekoratif (alt kosong). */}
           <Image src={logo} alt="" priority sizes="48px" className="size-12 shrink-0" />
-          {/* Di mobile hanya logo yang tampil; teks tetap ada untuk pembaca layar. */}
-          <span className="sr-only leading-tight lg:not-sr-only">
+          <span className="leading-tight">
             <span className="block text-base font-semibold tracking-tight text-foreground sm:text-lg">{site.name}</span>
           </span>
         </a>
@@ -69,8 +68,9 @@ export function Navbar() {
             <MenuIcon className="size-5" />
           </SheetTrigger>
           <SheetContent side="right" className="w-4/5 max-w-xs">
-            <SheetHeader className="px-6 pt-6">
-              <SheetTitle className="text-lg font-bold tracking-tight text-foreground">{site.name}</SheetTitle>
+            <SheetHeader className="px-6 pt-8">
+              {/* Judul hanya untuk pembaca layar; dialog tetap butuh judul. */}
+              <SheetTitle className="sr-only">{site.name}</SheetTitle>
             </SheetHeader>
             <nav aria-label="Navigasi utama">
               <ul className="flex flex-col gap-1 px-3">
