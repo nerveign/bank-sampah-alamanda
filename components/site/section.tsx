@@ -19,13 +19,11 @@ export function Section({
 }
 
 export function SectionHeading({
-  number,
   eyebrow,
   title,
   inverse = false,
   className,
 }: {
-  number: number;
   eyebrow: string;
   title: string;
   // true untuk heading di atas latar hijau/gelap.
@@ -36,18 +34,10 @@ export function SectionHeading({
     <div className={className}>
       <p
         className={cn(
-          "flex items-center gap-3 text-xs font-medium tracking-[0.18em] uppercase sm:text-sm",
-          inverse ? "text-primary-foreground/90" : "text-muted-foreground",
+          "text-xs font-semibold tracking-[0.18em] uppercase sm:text-sm",
+          inverse ? "text-primary-foreground/90" : "text-primary",
         )}
       >
-        <span
-          className={cn(
-            "font-semibold tracking-normal",
-            inverse ? "text-primary-foreground" : "text-primary",
-          )}
-        >
-          ({String(number).padStart(2, "0")})
-        </span>
         {eyebrow}
       </p>
       <h2 className="mt-4 max-w-3xl text-3xl leading-[1.05] font-semibold tracking-[-0.03em] text-balance sm:text-4xl lg:text-5xl">

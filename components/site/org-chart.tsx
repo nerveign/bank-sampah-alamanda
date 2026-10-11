@@ -49,7 +49,6 @@ export function OrgChart() {
   return (
     <Section id="pengurus">
       <SectionHeading
-        number={3}
         eyebrow="Struktur Pengurus"
         title="Orang-orang di balik Bank Sampah Alamanda"
       />

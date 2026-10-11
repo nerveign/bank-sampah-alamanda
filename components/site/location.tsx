@@ -9,7 +9,7 @@ export function Location() {
     <Section id="lokasi">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="flex flex-col lg:col-span-4">
-          <SectionHeading number={5} eyebrow="Lokasi" title="Temukan kami" />
+          <SectionHeading eyebrow="Lokasi" title="Temukan kami" />
           <p className="mt-6 leading-relaxed text-muted-foreground sm:text-lg">
             Warga dapat datang langsung ke lokasi Bank Sampah Alamanda untuk
             menyetorkan sampah yang sudah dipilah.

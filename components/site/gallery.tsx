@@ -6,7 +6,6 @@ export function Gallery() {
   return (
     <Section id="gallery" className="bg-surface">
       <SectionHeading
-        number={6}
         eyebrow="Gallery"
         title="Kegiatan Bank Sampah Alamanda"
         className="mb-12"

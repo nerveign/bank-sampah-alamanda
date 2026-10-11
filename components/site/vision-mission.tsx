@@ -5,7 +5,6 @@ export function VisionMission() {
   return (
     <Section id="visi-misi" className="bg-surface">
       <SectionHeading
-        number={2}
         eyebrow="Visi & Misi"
         title="Arah dan tujuan Bank Sampah Alamanda"
       />

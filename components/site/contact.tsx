@@ -12,7 +12,6 @@ export function Contact() {
         <div className="grid items-end gap-10 rounded-[2rem] bg-primary p-8 text-primary-foreground sm:p-12 lg:grid-cols-2 lg:p-16">
           <div>
             <SectionHeading
-              number={7}
               eyebrow="Kontak"
               title="Ikuti kabar dan kegiatan kami di Instagram"
               inverse

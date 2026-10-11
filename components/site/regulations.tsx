@@ -6,7 +6,7 @@ export function Regulations() {
     <Section id="regulasi" className="bg-surface">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
-          <SectionHeading number={4} eyebrow="Regulasi" title={regulasi.title} />
+          <SectionHeading eyebrow="Regulasi" title={regulasi.title} />
           <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground sm:text-lg">
             {regulasi.intro.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
