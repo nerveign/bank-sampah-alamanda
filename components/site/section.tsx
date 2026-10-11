@@ -22,17 +22,30 @@ export function SectionHeading({
   number,
   eyebrow,
   title,
+  inverse = false,
   className,
 }: {
   number: number;
   eyebrow: string;
   title: string;
+  // true untuk heading di atas latar hijau/gelap.
+  inverse?: boolean;
   className?: string;
 }) {
   return (
     <div className={className}>
-      <p className="flex items-center gap-3 text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase sm:text-sm">
-        <span className="font-semibold tracking-normal text-primary">
+      <p
+        className={cn(
+          "flex items-center gap-3 text-xs font-medium tracking-[0.18em] uppercase sm:text-sm",
+          inverse ? "text-white/70" : "text-muted-foreground",
+        )}
+      >
+        <span
+          className={cn(
+            "font-semibold tracking-normal",
+            inverse ? "text-white" : "text-primary",
+          )}
+        >
           ({String(number).padStart(2, "0")})
         </span>
         {eyebrow}

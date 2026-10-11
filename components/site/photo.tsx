@@ -8,17 +8,25 @@ export function Photo({
   src,
   alt,
   sizes,
+  fit = "cover",
   className,
 }: {
   src: string | null;
   alt: string;
   sizes: string;
+  fit?: "cover" | "contain";
   className?: string;
 }) {
   return (
     <div className={cn("relative overflow-hidden bg-muted", className)}>
       {src ? (
-        <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          className={fit === "cover" ? "object-cover" : "object-contain"}
+        />
       ) : (
         <div
           role="img"
