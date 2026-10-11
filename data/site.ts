@@ -12,7 +12,7 @@ export const site = {
       "Wadah warga untuk memilah sampah dari rumah. Kenali profil, pengurus, regulasi, dan kegiatan Bank Sampah Alamanda.",
     // Foto slider hero: path di /public (mis. "/images/hero-1.jpg"); null =
     // placeholder. Satu foto = tanpa slider; dua atau lebih = berganti otomatis.
-    images: [null, null, null] as (string | null)[],
+    images: ["/images/hero-1.webp"] as (string | null)[],
   },
   location: {
     address: "Pengkol, Kelurahan Mangunsari, Kota Semarang",
