@@ -1,5 +1,5 @@
-// Teks Tentang dikembangkan dari kalimat inti pengurus; Visi & Misi masih
-// placeholder. Semua bisa diganti langsung di file ini.
+// Teks Tentang dikembangkan dari kalimat inti pengurus. Semua bisa diganti
+// langsung di file ini.
 
 export const about = {
   title: "Wadah memilah sampah untuk warga RW 01 Mangunsari",
@@ -15,13 +15,13 @@ export const about = {
   ],
 };
 
+// Sumber: papan "Visi Misi Alamanda Bank Sampah".
 export const visionMission = {
-  vision:
-    "Mewujudkan lingkungan RW 01 Mangunsari yang bersih, sehat, dan berdaya melalui pengelolaan sampah yang bertanggung jawab.",
+  vision: "Terwujudnya lingkungan yang mandiri, bersih, dan bernilai ekonomi.",
   missions: [
-    "Mengajak warga memilah sampah dari rumah.",
-    "Mengelola sampah bernilai ekonomi agar memberi manfaat bagi warga.",
-    "Mengurangi sampah yang berakhir di tempat pembuangan akhir.",
-    "Meningkatkan kesadaran lingkungan melalui edukasi dan kegiatan bersama.",
+    "Meningkatkan peran serta warga dalam pengelolaan sampah.",
+    "Meningkatkan kualitas SDM di bidang kebersihan dan kreatifitas.",
+    "Meningkatkan kepedulian dan peran serta warga dalam menjaga kebersihan.",
+    "Meningkatkan kualitas dan kuantitas di bidang kebersihan dan kreatifitas.",
   ],
 };

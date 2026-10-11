@@ -39,9 +39,7 @@ Di Google Maps, cari lokasi bank sampah, pilih **Bagikan → Sematkan peta**, la
 
 ## Konten yang masih placeholder
 
-- Tagline hero, foto hero, dan foto Tentang
-- Visi & Misi
-- Nama dan susunan pengurus
+- Teks hero dan foto Tentang
 - Teks regulasi (**verifikasi nomor dan tahun peraturan sebelum dipublikasikan**)
 - Titik peta yang tepat (sekarang masih pencarian area)
 - Akun Instagram

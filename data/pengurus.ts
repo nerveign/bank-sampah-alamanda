@@ -1,17 +1,35 @@
-export type Pengurus = { jabatan: string; nama: string };
+export type Pengurus = { jabatan: string; nama: string[] };
 
+// Sumber: spanduk "Pengurus Bank Sampah Alamanda" (PKM3R).
 // Bagan dibaca dari atas ke bawah; setiap baris adalah satu tingkat.
-// Placeholder: ganti jabatan dan nama sesuai susunan pengurus asli.
+// Tingkat 0–1 tampil hijau muda, tingkat 2 (Ketua) tampil hijau tua.
 export const pengurusLevels: Pengurus[][] = [
-  [{ jabatan: "Pembina", nama: "Nama Pembina" }],
-  [{ jabatan: "Ketua", nama: "Nama Ketua" }],
+  [{ jabatan: "Pelindung", nama: ["Lurah Mangunsari"] }],
+  [{ jabatan: "Penasehat", nama: ["Ketua RW 1", "Ketua Penggerak PKK RW 1"] }],
+  [{ jabatan: "Ketua", nama: ["Tri Kayati"] }],
   [
-    { jabatan: "Sekretaris", nama: "Nama Sekretaris" },
-    { jabatan: "Bendahara", nama: "Nama Bendahara" },
+    { jabatan: "Sekretaris", nama: ["Bungsu Fatima"] },
+    { jabatan: "Bendahara", nama: ["Fitri Sulistyaningrum"] },
   ],
   [
-    { jabatan: "Seksi Penimbangan", nama: "Nama Anggota" },
-    { jabatan: "Seksi Pemilahan", nama: "Nama Anggota" },
-    { jabatan: "Seksi Humas & Edukasi", nama: "Nama Anggota" },
+    { jabatan: "Pemilahan", nama: ["Siti Khotijah", "Asih", "Susilowati", "Musiah"] },
+    {
+      jabatan: "Penimbangan & Humas",
+      nama: ["Imdanah", "Sri Handayani", "Dewi Pemilu", "Sri Karyati"],
+    },
+    { jabatan: "Pengangkut", nama: ["Solikhin"] },
+    { jabatan: "Pemasaran", nama: ["Fitri Sulistya Ningrum", "Suryani"] },
+    {
+      jabatan: "Edukator",
+      nama: ["Wulandari", "Atik Handayani", "Emi Pujiastuti", "Diana Dwi Lestari", "Ida Susanti"],
+    },
+  ],
+  [
+    { jabatan: "Unit RT 01", nama: ["Sarwati", "Irma"] },
+    { jabatan: "Unit RT 02", nama: ["Sunarti", "Ika"] },
+    { jabatan: "Unit RT 03", nama: ["Biyanti", "Wiwik Puji Astuti"] },
+    { jabatan: "Unit RT 04", nama: ["Rohayati", "Suyani", "Susilowati"] },
+    { jabatan: "Unit RT 05", nama: ["Ponirah", "Siti Khotijah", "Diyah"] },
+    { jabatan: "Unit RT 06", nama: ["Sri Handayani", "Imdanah", "Indah"] },
   ],
 ];
