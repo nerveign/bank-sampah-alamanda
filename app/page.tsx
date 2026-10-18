@@ -25,8 +25,8 @@ export default function Home() {
         <VisionMission />
         <OrgChart />
         <Regulations />
-        <Location />
         <Activities />
+        <Location />
         <Contact />
       </main>
       <Footer />

@@ -80,12 +80,12 @@ Satu halaman, urutan dari atas. Setiap section punya `id` untuk anchor dan `scro
 | 4 | Visi & Misi | `#visi-misi` | (masuk menu Tentang) |
 | 5 | Struktur Pengurus | `#pengurus` | Pengurus |
 | 6 | Regulasi | `#regulasi` | Regulasi |
-| 7 | Lokasi | `#lokasi` | Lokasi |
-| 8 | Aktivitas | `#aktivitas` | Aktivitas |
+| 7 | Aktivitas | `#aktivitas` | Aktivitas |
+| 8 | Lokasi | `#lokasi` | Lokasi |
 | 9 | Kontak | `#kontak` | Kontak |
 | 10 | Footer | n/a | n/a |
 
-Menu navbar (7 item): **Beranda, Tentang, Pengurus, Regulasi, Lokasi, Aktivitas, Kontak**.
+Menu navbar (7 item): **Beranda, Tentang, Pengurus, Regulasi, Aktivitas, Lokasi, Kontak**.
 
 ### 4.1 Navbar
 - Bar putih solid selebar layar, `sticky` di atas (tinggi 80px), dengan garis bawah tipis. Hero berada di bawahnya, bukan di belakangnya.
@@ -130,16 +130,16 @@ Menu navbar (7 item): **Beranda, Tentang, Pengurus, Regulasi, Lokasi, Aktivitas,
 - Isi harus sesuai regulasi dan visi Kota Semarang; teks asli dari pemilik proyek. Sampai teks tersedia, pakai placeholder yang jelas bertanda.
 - Poin-poin tampil sebagai daftar bernomor dalam card.
 
-### 4.7 Lokasi
+### 4.7 Aktivitas
+- Foto kegiatan dalam **grid** responsif (2 kolom di mobile, 3–4 di desktop).
+- Placeholder dulu; jumlahnya mudah diubah lewat satu array data (`data/activities.ts`).
+- Klik foto membuka tampilan besar (lightbox sederhana memakai **Dialog** shadcn).
+
+### 4.8 Lokasi
 - Alamat: Pengkol, Kelurahan Mangunsari, Kota Semarang.
 - **Embed Google Maps** (iframe) dengan `loading="lazy"` dan `title` yang deskriptif.
 - Di samping peta: alamat tertulis dan tombol "Buka di Google Maps".
 - Butuh dari pemilik proyek: link embed Google Maps dan alamat lengkap.
-
-### 4.8 Aktivitas
-- Foto kegiatan dalam **grid** responsif (2 kolom di mobile, 3–4 di desktop).
-- Placeholder dulu; jumlahnya mudah diubah lewat satu array data (`data/activities.ts`).
-- Klik foto membuka tampilan besar (lightbox sederhana memakai **Dialog** shadcn).
 
 ### 4.9 Kontak
 - Hanya link ke **Instagram** (tombol/kartu dengan ikon dan handle).

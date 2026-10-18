@@ -1,31 +1,16 @@
-import { ArrowUpRightIcon, MapPinIcon } from "lucide-react";
-import { site } from "@/data/site";
-import { Section, SectionHeading } from "@/components/site/section";
+import { ArrowUpRightIcon, MapPinIcon } from 'lucide-react';
+import { site } from '@/data/site';
+import { Section, SectionHeading } from '@/components/site/section';
 
 export function Location() {
-  const { address, mapsEmbedUrl, mapsUrl } = site.location;
+  const { mapsEmbedUrl, mapsUrl } = site.location;
 
   return (
-    <Section id="lokasi">
+    <Section id="lokasi" className="bg-surface">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="flex flex-col lg:col-span-4">
           <SectionHeading eyebrow="Lokasi" title="Temukan kami" />
-          <p className="mt-6 leading-relaxed text-muted-foreground sm:text-lg">
-            Warga dapat datang langsung ke lokasi Bank Sampah Alamanda untuk
-            menyetorkan sampah yang sudah dipilah.
-          </p>
-
-          <div className="mt-8 flex gap-4 rounded-lg border bg-surface p-6">
-            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
-              <MapPinIcon className="size-5" />
-            </span>
-            <div>
-              <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                Alamat
-              </p>
-              <p className="mt-1 font-semibold">{address}</p>
-            </div>
-          </div>
+          <p className="mt-6 leading-relaxed text-muted-foreground sm:text-lg">Warga dapat datang langsung ke lokasi Bank Sampah Alamanda untuk menyetorkan sampah yang sudah dipilah.</p>
 
           <a
             href={mapsUrl}
@@ -41,14 +26,7 @@ export function Location() {
         </div>
 
         <div className="overflow-hidden rounded-lg border bg-muted lg:col-span-8">
-          <iframe
-            src={mapsEmbedUrl}
-            title={`Peta lokasi ${site.name}`}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-            className="aspect-[4/3] h-full w-full border-0 lg:aspect-auto lg:min-h-[480px]"
-          />
+          <iframe src={mapsEmbedUrl} title={`Peta lokasi ${site.name}`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen className="aspect-[4/3] h-full w-full border-0 lg:aspect-auto lg:min-h-[480px]" />
         </div>
       </div>
     </Section>
