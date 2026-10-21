@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { site } from "@/data/site";
+import { siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,23 +9,34 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const description = `${site.name}, wadah memilah sampah untuk warga ${site.area}. Profil, visi misi, pengurus, regulasi, lokasi, dan kegiatan.`;
+// Nama + wilayah di judul membantu pencarian lokal ("bank sampah Semarang").
+const title = `${site.name} | ${site.tagline}`;
+const { description } = site;
 
-// metadataBase tidak diset: di Vercel, Next.js otomatis memakai domain
-// produksi proyek. Set manual di sini jika memakai domain sendiri.
 export const metadata: Metadata = {
-  title: site.name,
+  metadataBase: new URL(siteUrl),
+  title,
   description,
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { "max-image-preview": "large", "max-snippet": -1 },
+  },
+  // Kode verifikasi Google Search Console (metode tag HTML). Tidak dirender
+  // jika variabel tidak diisi.
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
   openGraph: {
-    title: site.name,
+    title,
     description,
+    url: "/",
     siteName: site.name,
     locale: "id_ID",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: site.name,
+    title,
     description,
   },
 };

@@ -51,13 +51,34 @@ File logo ada di `public/images/bank-sampah-logo.png` (PNG transparan, 512×512)
 ## Struktur
 
 ```
-app/            layout, halaman, gaya global, ikon, gambar Open Graph
-components/site komponen tiap section (navbar, hero, about, dst.)
+app/            layout, halaman, gaya global, ikon, gambar Open Graph, robots, sitemap
+components/site komponen tiap section (navbar, hero, about, dst.) dan data terstruktur
 components/ui   komponen shadcn/ui
 data/           konten situs
+lib/            helper (alamat situs untuk SEO, utilitas)
 docs/SPEC.md    spesifikasi dan rencana
 ```
 
+## SEO
+
+Sudah terpasang: judul dan deskripsi, canonical, Open Graph dan Twitter card, `robots.txt`, `sitemap.xml`, dan data terstruktur (JSON-LD) `WebSite` + `Organization`. Judul dan deskripsi diatur di `data/site.ts` (`tagline` dan `description`; usahakan deskripsi di bawah 160 karakter). Rincian alamat untuk data terstruktur ada di `location` pada file yang sama.
+
+Pemasangan di kode saja tidak membuat situs langsung muncul di Google. Langkah setelah deploy:
+
+1. Buka [Google Search Console](https://search.google.com/search-console) dan tambahkan situs.
+2. Verifikasi kepemilikan. Lewat tag HTML: salin nilai `content` dari tag yang diberikan, isi sebagai environment variable `GOOGLE_SITE_VERIFICATION`, lalu redeploy. Verifikasi lewat DNS tidak butuh variabel ini.
+3. Di menu **Sitemap**, kirim `sitemap.xml`. Di **Inspeksi URL**, masukkan alamat halaman utama dan klik **Minta pengindeksan**.
+4. Untuk pencarian lokal ("bank sampah dekat saya"), buat dan verifikasi profil di [Google Business Profile](https://www.google.com/business/). Ini berpengaruh besar ke hasil pencarian dan Google Maps, di luar yang bisa dilakukan kode.
+
+Pengindeksan biasanya butuh beberapa hari sampai beberapa minggu. Nama "Bank Sampah Alamanda" akan lebih cepat muncul daripada kata kunci umum seperti "bank sampah Semarang".
+
 ## Deploy
 
-Hubungkan repo ini ke Vercel. Tidak perlu konfigurasi atau environment variable tambahan.
+Hubungkan repo ini ke Vercel. Environment variable berikut opsional (Vercel → Settings → Environment Variables):
+
+| Variabel | Fungsi |
+|---|---|
+| `SITE_URL` | Alamat situs, mis. `https://alamanda.example`. Dipakai untuk canonical, sitemap, robots, dan data terstruktur. Jika kosong, dipakai domain produksi Vercel secara otomatis. Isi jika memakai domain sendiri yang berbeda dari domain utama di Vercel (mis. www vs tanpa www). |
+| `GOOGLE_SITE_VERIFICATION` | Kode verifikasi Google Search Console (lihat bagian SEO). |
+
+Saat dijalankan lokal tanpa variabel, alamat situs di sitemap dan canonical adalah `http://localhost:3000`. Itu wajar dan tidak mempengaruhi produksi.

@@ -8,7 +8,7 @@ Status: **Fase 0–4 selesai diimplementasikan**, menunggu konten asli · Dibuat
 - **Menu mobile** memakai Sheet dengan `modal="trap-focus"` (fokus terkunci, scroll halaman tidak), agar link anchor langsung scroll sambil sheet menutup.
 - **Aktivitas**: foto pertama tampil 2×2. Jumlah 9, 21, 33, dst. mengisi grid tanpa sel kosong. Klik foto membuka lightbox (panah kiri/kanan, Escape).
 - **Kontak** menjadi section tersendiri sebelum footer.
-- **SEO**: metadata dan Open Graph di `app/layout.tsx`, gambar OG di `app/opengraph-image.tsx`, logo di `public/images/bank-sampah-logo.png` dengan favicon `app/icon.png` dan `app/apple-icon.png`. `metadataBase` tidak diset karena Vercel mengisinya otomatis dari domain produksi.
+- **SEO**: metadata, canonical, dan Open Graph di `app/layout.tsx`, gambar OG di `app/opengraph-image.tsx`, `app/robots.ts`, `app/sitemap.ts`, data terstruktur JSON-LD di `components/site/structured-data.tsx`, logo di `public/images/bank-sampah-logo.png` dengan favicon `app/icon.png` dan `app/apple-icon.png`. Alamat situs ditentukan di `lib/seo.ts`: env `SITE_URL`, lalu domain produksi Vercel (`VERCEL_PROJECT_PRODUCTION_URL`), lalu localhost. Next.js hanya mengisi `metadataBase` otomatis untuk gambar sosial, bukan untuk canonical, sitemap, dan robots, sehingga alamat ini perlu ditetapkan sendiri.
 - Cara mengganti konten dijelaskan di `README.md`.
 
 ## 1. Ringkasan

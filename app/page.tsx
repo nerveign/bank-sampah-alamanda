@@ -8,10 +8,12 @@ import { Location } from "@/components/site/location";
 import { Activities } from "@/components/site/activities";
 import { Contact } from "@/components/site/contact";
 import { Footer } from "@/components/site/footer";
+import { StructuredData } from "@/components/site/structured-data";
 
 export default function Home() {
   return (
     <>
+      <StructuredData />
       <a
         href="#tentang"
         className="sr-only z-50 rounded-full bg-white px-4 py-2 font-medium text-primary shadow focus:not-sr-only focus:fixed focus:top-4 focus:left-4"

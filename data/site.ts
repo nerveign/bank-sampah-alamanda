@@ -4,6 +4,9 @@ export const site = {
   area: 'RW 01 Kelurahan Mangunsari, Kota Semarang',
   // Subjudul kecil di bawah nama pada navbar.
   tagline: 'RW 01 Mangunsari, Semarang',
+  // Deskripsi untuk hasil pencarian dan pratinjau tautan. Usahakan di bawah
+  // 160 karakter agar tidak terpotong.
+  description: 'Bank Sampah Alamanda, wadah warga RW 01 Kelurahan Mangunsari, Kota Semarang untuk memilah sampah. Kenali profil, pengurus, regulasi, dan lokasi kami.',
   hero: {
     eyebrow: 'RW 01 Kelurahan Mangunsari, Kota Semarang',
     // Placeholder, menunggu tagline dari pengurus.
@@ -15,6 +18,11 @@ export const site = {
   },
   location: {
     address: 'Pengkol, Kelurahan Mangunsari, Kota Semarang',
+    // Rincian alamat untuk data terstruktur (JSON-LD) agar terbaca mesin pencari.
+    // Lengkapi dengan nama jalan dan nomor jika sudah ada.
+    street: 'Pengkol, RW 01 Kelurahan Mangunsari',
+    locality: 'Semarang',
+    region: 'Jawa Tengah',
     // Placeholder: pencarian area, belum titik pasti. Ganti dengan link
     // dari Google Maps > Bagikan > Sematkan peta (ambil nilai src iframe).
     mapsEmbedUrl: 'https://www.google.com/maps?q=Pengkol+Mangunsari+Gunungpati+Semarang&output=embed',
