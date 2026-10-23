@@ -19,17 +19,23 @@ Semua teks, nama, dan tautan ada di folder `data/`, terpisah dari komponen. Cuku
 
 | File | Isi |
 |---|---|
-| `data/site.ts` | Nama, subjudul navbar, teks hero, foto slider hero (`hero.images`), alamat, link Google Maps, akun Instagram, menu navbar |
+| `data/site.ts` | Nama, tagline (judul tab dan metadata), deskripsi SEO, teks hero, foto hero (`hero.images`), alamat, link Google Maps, akun Instagram, menu navbar |
 | `data/profil.ts` | Teks Tentang, foto Tentang, Visi & Misi |
 | `data/pengurus.ts` | Susunan dan nama pengurus (satu baris array = satu tingkat bagan) |
 | `data/regulasi.ts` | Penjelasan dan poin-poin regulasi |
 | `data/activities.ts` | Foto kegiatan untuk section Aktivitas |
 
+### Menu navbar
+
+Menu ada 5 item (`navItems` di `data/site.ts`): Beranda, Tentang, Aktivitas, Lokasi, Kontak. Footer memakai daftar yang sama. Section Visi & Misi, Pengurus, dan Regulasi tidak punya menu sendiri; selama salah satunya terlihat, menu **Tentang** yang disorot (`sectionToNav`). Untuk menambah menu, tambahkan item di `navItems` dengan `id` yang sama dengan `id` section-nya.
+
 ### Foto
 
-1. Simpan foto di `public/images/`, misalnya `public/images/aktivitas/kerja-bakti.jpg`.
-2. Isi `src` atau `image` dengan path-nya tanpa `public`, misalnya `"/images/aktivitas/kerja-bakti.jpg"`.
+1. Simpan foto di `public/images/`, misalnya `public/images/aktivitas-10.jpg`.
+2. Isi `src` atau `image` dengan path-nya tanpa `public`, misalnya `"/images/aktivitas-10.jpg"`.
 3. Selama nilainya `null`, yang tampil adalah kotak placeholder.
+
+Foto yang sudah terpasang: `hero-1.jpg` (hero, satu foto sehingga tanpa slider; tambahkan foto ke `hero.images` untuk mengaktifkan slider), `tentang-kami-2.jpg` (Tentang), dan `aktivitas-1.jpg` s.d. `aktivitas-9.jpg` (Aktivitas). Jumlah foto aktivitas 9, 21, 33, dst. mengisi grid tanpa sel kosong.
 
 Gambar dioptimasi otomatis oleh `next/image` saat di-deploy ke Vercel.
 
@@ -41,12 +47,17 @@ Di Google Maps, cari lokasi bank sampah, pilih **Bagikan → Sematkan peta**, la
 
 File logo ada di `public/images/bank-sampah-logo.png` (PNG transparan, 512×512) dan dipakai langsung di navbar lewat `next/image`. Favicon `app/icon.png` (192×192) dan ikon iOS `app/apple-icon.png` (180×180) dibuat dari logo yang sama; buat ulang keduanya jika logo berganti.
 
-## Konten yang masih placeholder
+## Konten yang masih perlu dicek
 
-- Teks hero
-- Teks regulasi (**verifikasi nomor dan tahun peraturan sebelum dipublikasikan**)
-- Titik peta yang tepat (sekarang masih pencarian area)
-- Foto aktivitas
+Logo, visi-misi, nama pengurus, foto, dan daftar regulasi sudah terpasang. Yang masih perlu dicek atau dilengkapi:
+
+- Teks hero (masih usulan)
+- Teks regulasi (**verifikasi nomor dan tahun peraturan sebelum dipublikasikan**, dan seragamkan penulisan judulnya)
+- Titik peta yang tepat (sekarang masih pencarian area) dan alamat lengkap dengan nama jalan
+- Akun Instagram (`data/site.ts`; konfirmasi bahwa handle-nya benar, karena ikut masuk ke data terstruktur)
+- Teks alt foto aktivitas (`data/activities.ts`; masih generik, sesuaikan dengan isi foto)
+- `aktivitas-4.jpg` identik dengan `tentang-kami-2.jpg`; ganti salah satunya jika tidak disengaja
+- Nama pengurus tampil publik; pastikan pengurus setuju dan ejaan sudah benar
 
 ## Struktur
 
@@ -66,11 +77,11 @@ Sudah terpasang: judul dan deskripsi, canonical, Open Graph dan Twitter card, `r
 Pemasangan di kode saja tidak membuat situs langsung muncul di Google. Langkah setelah deploy:
 
 1. Buka [Google Search Console](https://search.google.com/search-console) dan tambahkan situs.
-2. Verifikasi kepemilikan. Lewat tag HTML: salin nilai `content` dari tag yang diberikan, isi sebagai environment variable `GOOGLE_SITE_VERIFICATION`, lalu redeploy. Verifikasi lewat DNS tidak butuh variabel ini.
+2. Verifikasi kepemilikan. Ada tiga cara: file HTML (sudah tersedia di `public/google9e40e5ea23b143dc.html`, jangan dihapus), tag HTML (salin nilai `content` ke environment variable `GOOGLE_SITE_VERIFICATION`, lalu redeploy), atau DNS.
 3. Di menu **Sitemap**, kirim `sitemap.xml`. Di **Inspeksi URL**, masukkan alamat halaman utama dan klik **Minta pengindeksan**.
 4. Untuk pencarian lokal ("bank sampah dekat saya"), buat dan verifikasi profil di [Google Business Profile](https://www.google.com/business/). Ini berpengaruh besar ke hasil pencarian dan Google Maps, di luar yang bisa dilakukan kode.
 
-Pengindeksan biasanya butuh beberapa hari sampai beberapa minggu. Nama "Bank Sampah Alamanda" akan lebih cepat muncul daripada kata kunci umum seperti "bank sampah Semarang".
+Situs produksi: `https://bank-sampah-alamanda.vercel.app`. Pengindeksan biasanya butuh beberapa hari sampai beberapa minggu. Nama "Bank Sampah Alamanda" akan lebih cepat muncul daripada kata kunci umum seperti "bank sampah Semarang".
 
 ## Deploy
 

@@ -1,5 +1,6 @@
-// PLACEHOLDER: verifikasi nomor, tahun, dan isi setiap regulasi sebelum
-// situs dipublikasikan, lalu sesuaikan dengan regulasi dan visi Kota Semarang.
+// BELUM DIVERIFIKASI: cek nomor, tahun, dan isi setiap regulasi (terutama
+// Perda Kota Semarang No. 6 Tahun 2025) dan seragamkan penulisan judulnya,
+// lalu sesuaikan dengan regulasi dan visi Kota Semarang.
 
 export const regulasi = {
   title: 'Berjalan sesuai aturan pengelolaan sampah',

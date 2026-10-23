@@ -1,8 +1,12 @@
 # Spesifikasi & Rencana — Landing Page Bank Sampah Alamanda
 
-Status: **Fase 0–4 selesai diimplementasikan**, menunggu konten asli · Dibuat 2026-10-11
+Status: **Fase 0–4 selesai diimplementasikan; konten asli sebagian besar sudah terpasang** · Dibuat 2026-10-11 · Disinkronkan dengan kode 2026-10-21
 
 ### Catatan implementasi (perbedaan dari rencana awal)
+- **Menu navbar 5 item**, bukan 7: Beranda, Tentang, Aktivitas, Lokasi, Kontak (`navItems` di `data/site.ts`). Section Visi & Misi, Pengurus, dan Regulasi tetap ada di halaman tetapi tidak punya menu sendiri; saat tampil di layar, menu **Tentang** yang disorot (`sectionToNav`). Menu footer memakai daftar yang sama.
+- **Navbar** menampilkan logo asli + nama saja; subjudul di bawah nama sudah dihapus. `site.tagline` sekarang dipakai untuk judul tab dan metadata.
+- **Hero** saat ini satu foto (`/images/hero-1.jpg`), jadi slider tidak tampil. Kode slider tetap ada dan aktif otomatis bila `hero.images` berisi dua foto atau lebih.
+- **Konten asli sudah terpasang:** logo, foto hero dan Tentang, 9 foto aktivitas, visi-misi (dari papan Visi Misi), struktur pengurus (dari spanduk PKM3R), dan 7 regulasi. Yang masih perlu dicek ada di bagian 8.
 - **Warna tombol** memakai `#1F7A41`, bukan `#2E9E57`, agar kontras teks putih memenuhi standar (lihat tabel token).
 - **shadcn/ui v4** dengan preset `base-nova` (berbasis Base UI, bukan Radix): pola `asChild` diganti `render`, dan `cn` diimpor dari paket `cn`.
 - **Menu mobile** memakai Sheet dengan `modal="trap-focus"` (fokus terkunci, scroll halaman tidak), agar link anchor langsung scroll sambil sheet menutup.
@@ -31,8 +35,8 @@ Tujuan halaman:
 | Hosting | Vercel (diurus pemilik proyek) |
 | Bahasa | Indonesia saja (`<html lang="id">`) |
 | Font | **Inter** sebagai base font, lewat `next/font/google` |
-| Logo | Sementara teks **"Alamanda"** (logo asli menyusul) |
-| Foto | Placeholder dulu untuk hero, tentang, dan aktivitas |
+| Logo | Logo asli (`public/images/bank-sampah-logo.png`), dipakai di navbar, favicon, dan JSON-LD |
+| Foto | Foto asli untuk hero, Tentang, dan aktivitas; kotak placeholder hanya muncul bila `src` bernilai `null` |
 | Elemen referensi yang dibuang | Tombol search di navbar, kartu "Join The Movement", tombol "Login" |
 | `output: 'export'` | **Ditunda**, diputuskan nanti (lihat bagian 9) |
 
@@ -78,24 +82,24 @@ Satu halaman, urutan dari atas. Setiap section punya `id` untuk anchor dan `scro
 | 2 | Hero | `#beranda` | Beranda |
 | 3 | Tentang | `#tentang` | Tentang |
 | 4 | Visi & Misi | `#visi-misi` | (masuk menu Tentang) |
-| 5 | Struktur Pengurus | `#pengurus` | Pengurus |
-| 6 | Regulasi | `#regulasi` | Regulasi |
+| 5 | Struktur Pengurus | `#pengurus` | (masuk menu Tentang) |
+| 6 | Regulasi | `#regulasi` | (masuk menu Tentang) |
 | 7 | Aktivitas | `#aktivitas` | Aktivitas |
 | 8 | Lokasi | `#lokasi` | Lokasi |
 | 9 | Kontak | `#kontak` | Kontak |
 | 10 | Footer | n/a | n/a |
 
-Menu navbar (7 item): **Beranda, Tentang, Pengurus, Regulasi, Aktivitas, Lokasi, Kontak**.
+Menu navbar (5 item): **Beranda, Tentang, Aktivitas, Lokasi, Kontak**. Anchor `#visi-misi`, `#pengurus`, dan `#regulasi` tetap bisa dituju lewat URL; menu **Tentang** disorot selama salah satunya terlihat.
 
 ### 4.1 Navbar
 - Bar putih solid selebar layar, `sticky` di atas (tinggi 80px), dengan garis bawah tipis. Hero berada di bawahnya, bukan di belakangnya.
-- Kiri: logo (sementara ikon daun) + "Bank Sampah Alamanda" + subjudul "RW 01 Mangunsari, Semarang".
-- Desktop: 7 menu di kanan; menu aktif berlatar hijau muda dengan sudut membulat. Tidak ada tombol tambahan.
+- Kiri: logo asli + "Bank Sampah Alamanda" (tanpa subjudul).
+- Desktop: 5 menu di kanan; menu aktif berlatar hijau muda dengan sudut membulat. Tidak ada tombol tambahan.
 - Mobile: tombol hamburger di kanan; menu terbuka lewat komponen **Sheet** shadcn.
 - Klik menu melakukan smooth scroll ke anchor; menu aktif ditandai sesuai section yang terlihat.
 
 ### 4.2 Hero
-- Slider foto full-bleed (placeholder, berganti otomatis tiap 6 detik, crossfade), overlay gelap, titik navigasi di kanan bawah. Satu foto = tanpa slider. Auto-play mati bila pengguna memilih *reduced motion*.
+- Foto full-bleed dengan overlay gelap. Mendukung slider (berganti otomatis tiap 6 detik, crossfade, titik navigasi di kanan bawah) bila `hero.images` berisi dua foto atau lebih; saat ini satu foto, jadi tanpa slider. Auto-play mati bila pengguna memilih *reduced motion*.
 - Eyebrow kapital: "RW 01 Kelurahan Mangunsari, Kota Semarang".
 - Headline besar putih. Placeholder: **"Pilah sampah, jaga lingkungan kita."**
 - Paragraf deskripsi singkat.
@@ -108,45 +112,38 @@ Menu navbar (7 item): **Beranda, Tentang, Pengurus, Regulasi, Aktivitas, Lokasi,
 - Teks akan saya kembangkan sedikit dari kalimat inti, lalu dikoreksi pemilik proyek.
 
 ### 4.4 Visi & Misi
-- Placeholder dulu, nanti diganti pemilik proyek.
-- Visi: satu kalimat. Misi: 4 poin dalam card bernomor `(01)`–`(04)`.
-- Draft placeholder:
-  - **Visi:** "Mewujudkan lingkungan RW 01 Mangunsari yang bersih, sehat, dan berdaya melalui pengelolaan sampah yang bertanggung jawab."
-  - **Misi:**
-    1. Mengajak warga memilah sampah dari rumah.
-    2. Mengelola sampah bernilai ekonomi agar memberi manfaat bagi warga.
-    3. Mengurangi sampah yang berakhir di tempat pembuangan akhir.
-    4. Meningkatkan kesadaran lingkungan melalui edukasi dan kegiatan bersama.
+- Sudah memakai teks asli dari papan "Visi Misi Alamanda Bank Sampah" (`data/profil.ts`); draft placeholder awal sudah diganti.
+- Visi: satu kalimat. Misi: 4 poin dalam card bernomor `[01]`–`[04]`.
 
 ### 4.5 Struktur Pengurus
 - Hanya **nama dan jabatan**, tanpa foto.
 - Ditampilkan sebagai **bagan hierarki** (tingkat atas ke bawah, dengan garis penghubung).
 - Data dipisahkan dari komponen (`data/pengurus.ts`) agar mudah diganti.
-- Placeholder: Pembina, Ketua, Sekretaris, Bendahara, beberapa seksi di bawahnya. Struktur dan nama asli dari pemilik proyek.
+- Sudah memakai nama asli dari spanduk "Pengurus Bank Sampah Alamanda" (PKM3R): 6 tingkat dari Pelindung, Penasehat, Ketua, Sekretaris/Bendahara, lima seksi, sampai unit RT 01–07. Karena memuat nama warga, pastikan pengurus mengetahui namanya tampil di situs publik.
 - Mobile: bagan menyesuaikan, misalnya menjadi tumpukan vertikal dengan garis di sisi kiri.
 
 ### 4.6 Regulasi
 - Format: **paragraf penjelasan, lalu poin-poin**.
-- Isi harus sesuai regulasi dan visi Kota Semarang; teks asli dari pemilik proyek. Sampai teks tersedia, pakai placeholder yang jelas bertanda.
+- Isi harus sesuai regulasi dan visi Kota Semarang. Saat ini berisi 7 peraturan (UU, PP, Perpres, Permen LHK, Perda Jawa Tengah, Perda Kota Semarang, Perwal Semarang); **nomor, tahun, dan penulisannya belum diverifikasi** (lihat bagian 8).
 - Poin-poin tampil sebagai daftar bernomor dalam card.
 
 ### 4.7 Aktivitas
 - Foto kegiatan dalam **grid** responsif (2 kolom di mobile, 3–4 di desktop).
-- Placeholder dulu; jumlahnya mudah diubah lewat satu array data (`data/activities.ts`).
+- Saat ini 9 foto asli (`public/images/aktivitas-1.jpg` s.d. `-9.jpg`); jumlahnya mudah diubah lewat satu array data (`data/activities.ts`). Teks alt masih generik dan perlu disesuaikan dengan isi tiap foto.
 - Klik foto membuka tampilan besar (lightbox sederhana memakai **Dialog** shadcn).
 
 ### 4.8 Lokasi
 - Alamat: Pengkol, Kelurahan Mangunsari, Kota Semarang.
 - **Embed Google Maps** (iframe) dengan `loading="lazy"` dan `title` yang deskriptif.
 - Di samping peta: alamat tertulis dan tombol "Buka di Google Maps".
-- Butuh dari pemilik proyek: link embed Google Maps dan alamat lengkap.
+- Embed yang terpasang masih berupa pencarian area (bukan titik pasti); alamat belum memuat nama jalan.
 
 ### 4.9 Kontak
 - Hanya link ke **Instagram** (tombol/kartu dengan ikon dan handle).
-- Butuh dari pemilik proyek: handle/URL Instagram.
+- Handle yang terpasang: `bs_alamanda_mangunsari` (belum dikonfirmasi pemilik proyek). Handle ini juga dipakai di footer dan JSON-LD (`sameAs`).
 
 ### 4.10 Footer
-- Nama "Bank Sampah Alamanda", alamat singkat, link Instagram, dan tautan ke section-section utama.
+- Nama singkat "Alamanda" dan deskripsi, link Instagram, menu (5 item, sama dengan navbar), alamat dengan tautan Google Maps.
 - Hak cipta dengan tahun.
 
 ## 5. Struktur file (usulan)
@@ -167,13 +164,21 @@ components/
     regulations.tsx
     location.tsx
     activities.tsx
+    activity-grid.tsx   # grid + lightbox (client)
+    hero-slides.tsx     # slider hero (client)
+    photo.tsx           # foto dengan fallback placeholder
+    section.tsx         # pembungkus section + heading
+    structured-data.tsx # JSON-LD
     contact.tsx
     footer.tsx
 data/
-  site.ts               # nama, alamat, link Instagram, link Maps
+  site.ts               # nama, hero, alamat, Instagram, Maps, menu
+  profil.ts             # Tentang, Visi & Misi
   pengurus.ts
   regulasi.ts
   activities.ts
+lib/
+  seo.ts                # alamat situs untuk canonical, sitemap, robots
 public/
   images/               # foto placeholder, lalu foto asli
 ```
@@ -217,19 +222,19 @@ Setiap fase bisa direview sebelum lanjut.
 - `pnpm lint` dan `pnpm build` lolos tanpa error.
 - Tidak ada kode server atau form.
 
-## 8. Konten yang belum ada (dari pemilik proyek)
+## 8. Konten yang masih perlu dicek atau dilengkapi (per 2026-10-21)
 
-| Kebutuhan | Dipakai di | Sementara |
+Sudah terpasang dan tidak lagi placeholder: logo, visi-misi, nama pengurus, foto hero/Tentang/aktivitas, dan daftar regulasi.
+
+| Kebutuhan | Dipakai di | Kondisi sekarang |
 |---|---|---|
-| File logo | Navbar, footer, favicon | Teks "Alamanda" |
-| Teks hero (tagline) | Hero | Placeholder usulan |
-| Visi & Misi asli | Visi & Misi | Placeholder usulan |
-| Nama pengurus dan susunan hierarkinya | Pengurus | Placeholder jabatan |
-| Teks regulasi (penjelasan dan poin-poin) | Regulasi | Placeholder bertanda |
-| Link embed Google Maps dan alamat lengkap | Lokasi | Belum ada peta |
-| Handle/URL Instagram | Kontak, footer | Tautan kosong |
-| Foto: hero, tentang, aktivitas | Hero, Tentang, Aktivitas | Placeholder |
-| Referensi desain tambahan | Seluruh tampilan | Menunggu |
+| Teks hero (tagline) | Hero | Masih usulan: "Pilah sampah, jaga lingkungan kita." |
+| Verifikasi 7 regulasi (nomor, tahun, isi) | Regulasi | Belum diverifikasi; penulisan judul belum seragam (mis. item Perpres) |
+| Titik peta pasti dan alamat lengkap | Lokasi, JSON-LD | Embed masih pencarian area; belum ada nama jalan |
+| Konfirmasi akun Instagram | Kontak, footer, JSON-LD | Handle terpasang, belum dikonfirmasi |
+| Caption alt foto aktivitas | Aktivitas | Generik, belum menggambarkan isi tiap foto |
+| Foto unik untuk aktivitas ke-4 | Aktivitas, Tentang | `aktivitas-4.jpg` identik dengan `tentang-kami-2.jpg` |
+| Konfirmasi nama pengurus tampil publik | Pengurus | Nama bersumber dari spanduk; ejaan beberapa nama bervariasi |
 
 ## 9. Keputusan yang ditunda
 

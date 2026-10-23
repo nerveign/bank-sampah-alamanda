@@ -4,9 +4,10 @@ export type ActivityItem = {
   alt: string;
 };
 
-// Placeholder: ganti dengan foto kegiatan asli. Urutan di sini = urutan di grid;
-// foto pertama tampil lebih besar. Jumlah 9, 21, 33, dst. mengisi grid tanpa
-// sel kosong di tablet (3 kolom) dan desktop (4 kolom).
+// Foto kegiatan asli di /public/images. Teks alt masih generik: sesuaikan
+// dengan isi tiap foto. Urutan di sini = urutan di grid; foto pertama tampil
+// lebih besar. Jumlah 9, 21, 33, dst. mengisi grid tanpa sel kosong di tablet
+// (3 kolom) dan desktop (4 kolom).
 export const activityItems: ActivityItem[] = [
   { src: "/images/aktivitas-1.jpg", alt: "Penimbangan sampah warga" },
   { src: "/images/aktivitas-2.jpg", alt: "Pemilahan sampah plastik" },

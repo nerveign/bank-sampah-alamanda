@@ -25,11 +25,12 @@ export const pengurusLevels: Pengurus[][] = [
     },
   ],
   [
-    { jabatan: "Unit RT 01", nama: ["Sarwati", "Irma"] },
+    { jabatan: "Unit RT 01", nama: ["Irma"] },
     { jabatan: "Unit RT 02", nama: ["Sunarti", "Ika"] },
     { jabatan: "Unit RT 03", nama: ["Biyanti", "Wiwik Puji Astuti"] },
     { jabatan: "Unit RT 04", nama: ["Rohayati", "Suyani", "Susilowati"] },
     { jabatan: "Unit RT 05", nama: ["Ponirah", "Siti Khotijah", "Diyah"] },
     { jabatan: "Unit RT 06", nama: ["Sri Handayani", "Imdanah", "Indah"] },
+    { jabatan: "Unit RT 07", nama: ["Bungsu Fatimah", "Sri Karyati", "Sarwati"] },
   ],
 ];
